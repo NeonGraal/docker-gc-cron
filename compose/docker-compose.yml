@@ -2,7 +2,7 @@ dockergc:
     image: clockworksoul/docker-gc-cron:latest
     container_name: docker-gc
     net: "none"
-    restart: always
+    restart: unless-stopped
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./docker-gc-exclude:/etc/docker-gc-exclude
@@ -34,4 +34,4 @@ dockergc:
         
         # If you don't like all your log output and cron times being in UTC, you can set the
         # TZ variable to override the default.
-        - TZ=America/New_York
+        - TZ=New_Zealand/Auckland
